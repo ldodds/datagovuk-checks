@@ -1,0 +1,90 @@
+@prefix sch: <http://purl.org/net/schemarama#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+
+#####################################################################
+# TESTCASES
+#####################################################################
+
+# This is the main entry point. User should specify uri of this test case
+# on the command-line. This is to allow for multiple entry points 
+<http://source.data.gov.uk/acceptance-tests> a sch:TestCase;
+  dc:title "data.gov.uk acceptance tests";
+  dc:description "All data acceptance tests for data.gov.uk";
+  sch:groups ( 
+    _:datasets
+    _:urisets 
+    _:misc
+  ).
+
+#####################################################################
+# DATASETS
+#
+# Grouping of tests related to void:Dataset
+#####################################################################
+_:datasets a sch:TestGroup;
+  dc:title "Dataset Tests";
+  dc:description "Check structure and content of datasets";
+  sch:tests ( 
+    <file:dataset/dataset-exists.rq>  
+    <file:dataset/label-description.rq> 
+    <file:dataset/status.rq>
+    <file:dataset/examples.rq>
+	<file:dataset/vocabulary.rq>    
+  ).
+
+<file:dataset/dataset-exists.rq> a sch:Test;
+  dc:title "Dataset";
+  dc:description "Check for at least one void:Dataset".
+  
+<file:dataset/label-description.rq> a sch:Test;
+  dc:title "Labels and Descriptions";
+  dc:description "Check for dataset labels and descriptions".
+
+<file:dataset/status.rq> a sch:Test;
+  dc:title "Status";
+  dc:description "Datasets should indicate their status".
+
+<file:dataset/examples.rq> a sch:Test;
+  dc:title "Examples";
+  dc:description "Provide example resources to allow navigation".
+
+<file:dataset/vocabulary.rq> a sch:Test;
+  dc:title "Vocabulary";
+  dc:description "Indicate vocabularies to aid querying".
+
+
+#####################################################################
+# URISETS
+#
+# Grouping of tests related to specific aspects of dgu:URISet
+#####################################################################
+_:urisets a sch:TestGroup;
+  dc:title "URISet Tests";
+  dc:description "Check structure and content of urisets";
+  sch:tests (
+   <file:uriset/item-type.rq>
+   <file:uriset/links-to-uriset.rq>   
+   <file:uriset/regex.rq>
+  ).
+
+<file:uriset/regex.rq> a sch:Test;
+  dc:title "Regex Patterns";
+  dc:description "URI sets should specify structure of the resource identifiers".
+    
+<file:uriset/links-to-uriset.rq> a sch:Test;
+  dc:title "URISet Links";
+  dc:description "Resources covered by a uri set description should link to their uriset".
+
+#####################################################################
+# MISCELLANEOUS TESTS
+#
+#####################################################################
+_:misc a sch:TestGroup;
+  dc:title "Misc Tests";
+  dc:description "Checks for various common mistakes or omissions";
+  sch:tests (
+   <file:misc/notation-datatypes.rq>   
+  ).
+
+
+  

@@ -1,0 +1,22 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX dgu: <http://reference.data.gov.uk/def/reference/>
+PREFIX status: <http://reference.data.gov.uk/def/status/>
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "Missing dgu:uriSet property";
+    sch:implicated ?x.
+} WHERE {
+  ?set a dgu:URISet;
+    dgu:itemType ?type.
+        
+  ?x a ?type.
+  
+  #Note: this will allow the resource to link to another uriset, 
+  #Probably need to tighten that up
+  OPTIONAL {
+    ?x dgu:uriSet ?y
+  }
+  FILTER ( !bound(?y) )
+}

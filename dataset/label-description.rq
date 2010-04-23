@@ -1,0 +1,24 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "Datasets should have an rdfs:label, dc:title and dc:description";
+    sch:implicated ?x.
+    
+} WHERE {
+  ?x a void:Dataset.
+  OPTIONAL {
+    ?x rdfs:label ?label.
+  }
+  OPTIONAL {
+    ?x dct:title ?title.
+  }
+  OPTIONAL {
+    ?x dct:description ?description.
+  }  
+  FILTER ( !bound(?label) || !bound(?title) || !bound(?description) )
+}

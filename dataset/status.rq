@@ -1,0 +1,16 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX dgu: <http://reference.data.gov.uk/def/reference/>
+PREFIX status: <http://reference.data.gov.uk/def/status/>
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "Datasets should have a dgu:status property";
+    sch:implicated ?x.
+} WHERE {
+  ?x a void:Dataset.
+  OPTIONAL {
+    ?x dgu:status ?status.
+  }
+  FILTER ( !bound(?status) )
+}

@@ -1,0 +1,21 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "Missing rdf:datatype";
+    sch:implicated ?x.
+} WHERE {
+  {
+    ?x skos:notation ?y.
+    FILTER ( datatype(?y) = xsd:string )
+  }
+  UNION
+  {
+    ?x ?p ?y.
+    ?p rdfs:subPropertyOf skos:notation.
+    FILTER ( datatype(?y) = xsd:string )
+  }
+}

@@ -1,0 +1,16 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX dgu: <http://reference.data.gov.uk/def/reference/>
+PREFIX status: <http://reference.data.gov.uk/def/status/>
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "Missing dgu:itemType property";
+    sch:implicated ?x.
+} WHERE {
+  ?x a dgu:URISet.
+  OPTIONAL {
+    ?x dgu:itemType ?r
+  }
+  FILTER ( !bound(?r) )
+}
