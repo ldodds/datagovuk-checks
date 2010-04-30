@@ -1,0 +1,19 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX dgu: <http://reference.data.gov.uk/def/reference/>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "Datasets should have a dct:license property referencing a data.gov.uk uri";
+    sch:implicated ?x.
+} WHERE {
+  ?x a void:Dataset.
+  OPTIONAL {
+    ?x dct:license ?license.
+  }
+  FILTER ( !bound(?license) || 
+           ( bound(?license) && isLiteral(?license) ) ||
+           ( bound(?license) && !regex( str(?license), "http://data.gov.uk/terms-conditions" ) )
+         )
+}
