@@ -1,0 +1,19 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+
+  [] a sch:Error;
+    sch:message "missing rdf:type for ontology";
+    sch:implicated ?ontology.
+        
+} WHERE {
+  ?x rdfs:isDefinedBy ?ontology.
+  
+  OPTIONAL {
+    ?ontology a ?type.    
+  }
+  FILTER ( !bound( ?type )  )
+}

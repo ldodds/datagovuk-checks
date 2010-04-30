@@ -11,6 +11,9 @@ CONSTRUCT {
 } WHERE {
   {
 	  {
+	    ?x a owl:Ontology.
+	  }  
+	  {
 	    ?x a rdfs:Class.
 	  }
 	  UNION

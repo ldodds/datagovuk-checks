@@ -23,15 +23,20 @@ _:terms a sch:TestGroup;
   dc:title "RDF Term tests";
   dc:description "Check definitions of classes and properties";
   sch:tests ( 
-    <file:vocabulary/uris.rq>  
+    <file:vocabulary/uris.rq>
+    <file:vocabulary/ontology.rq>        
     <file:vocabulary/label-comment.rq>
     <file:vocabulary/defined-by.rq>
     <file:vocabulary/range-domain.rq>                    
   ).
 
 <file:vocabulary/uris.rq> a sch:Test;
-  dc:title "URIS";
+  dc:title "URIs";
   dc:description "All term uris should match data.gov.uk best practice".
+
+<file:vocabulary/ontology.rq> a sch:Test;
+  dc:title "Ontology";
+  dc:description "Ontologies should be declared as such".
 
 <file:vocabulary/label-comment.rq> a sch:Test;
   dc:title "Terms descriptions";
