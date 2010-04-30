@@ -21,4 +21,4 @@ The typical workflow will therefore be:
 Assuming the data is in SPARQL endpoint, you can run the tests like so:
 
 export SPARQLCHECK_HOME=/tools/sparql-check
-java -jar $SPARQL_CHECK_HOME/sparql-check.jar -test all-tests.ttl -id http://source.data.gov.uk/acceptance-tests -remote http://localhost:2020/sparql
+java -jar $SPARQLCHECK_HOME/sparql-check.jar -test all-tests.ttl -id http://source.data.gov.uk/acceptance-tests -remote http://localhost:2020/sparql
