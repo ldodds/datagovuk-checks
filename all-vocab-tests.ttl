@@ -1,0 +1,41 @@
+@prefix sch: <http://purl.org/net/schemarama#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+
+#####################################################################
+# TESTCASES
+#####################################################################
+
+# This is the main entry point. User should specify uri of this test case
+# on the command-line. This is to allow for multiple entry points 
+<http://source.data.gov.uk/vocab-acceptance-tests> a sch:TestCase;
+  dc:title "data.gov.uk vocab acceptance tests";
+  dc:description "All vocab acceptance tests for data.gov.uk";
+  sch:groups ( 
+    _:terms
+  ).
+
+#####################################################################
+# Terms
+#
+# Grouping of tests related to definitions of terms
+#####################################################################
+_:terms a sch:TestGroup;
+  dc:title "RDF Term tests";
+  dc:description "Check definitions of classes and properties";
+  sch:tests ( 
+    <file:vocabulary/label-comment.rq>
+    <file:vocabulary/defined-by.rq>
+    <file:vocabulary/range-domain.rq>                    
+  ).
+
+<file:vocabulary/label-comment.rq> a sch:Test;
+  dc:title "Terms descriptions";
+  dc:description "All terms should have useful descriptions".
+
+<file:vocabulary/defined-by.rq> a sch:Test;
+  dc:title "Definitions";
+  dc:description "All terms should reference their defining vocabulary".  
+  
+<file:vocabulary/range-domain.rq> a sch:Test;
+  dc:title "Range & Domain";
+  dc:description "All properties should indicate their range and domain".    
