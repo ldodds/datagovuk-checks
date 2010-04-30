@@ -32,6 +32,7 @@ _:datasets a sch:TestGroup;
 	<file:dataset/vocabulary.rq>    
 	<file:dataset/license.rq>
 	<file:dataset/source.rq>	
+	<file:dataset/status-warning.rq>	
   ).
 
 <file:dataset/dataset-exists.rq> a sch:Test;
@@ -61,6 +62,10 @@ _:datasets a sch:TestGroup;
 <file:dataset/source.rq> a sch:Test;
   dc:title "Source";
   dc:description "Datasets should indicate their source".
+
+<file:dataset/status-warning.rq> a sch:Test;
+  dc:title "Status URIs";
+  dc:description "Status URIs conform to a limited vocabulary".
 
 
 #####################################################################
