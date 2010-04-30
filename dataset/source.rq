@@ -5,7 +5,7 @@ PREFIX status: <http://reference.data.gov.uk/def/status/>
 PREFIX dct: <http://purl.org/dc/terms/>
 
 CONSTRUCT {
-  [] a sch:Warning;
+  [] a sch:Error;
     sch:message "missing dct:source property";
     sch:implicated ?x.
 } WHERE {
