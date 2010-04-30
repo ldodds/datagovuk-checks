@@ -5,7 +5,7 @@ PREFIX status: <http://reference.data.gov.uk/def/status/>
 
 CONSTRUCT {
   [] a sch:Error;
-    sch:message "Missing dgu:itemType property";
+    sch:message "is missing an dgu:itemType property";
     sch:implicated ?x.
 } WHERE {
   ?x a dgu:URISet.

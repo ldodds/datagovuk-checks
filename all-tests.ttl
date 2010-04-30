@@ -30,6 +30,7 @@ _:datasets a sch:TestGroup;
     <file:dataset/status.rq>
     <file:dataset/examples.rq>
 	<file:dataset/vocabulary.rq>    
+	<file:dataset/license.rq>
   ).
 
 <file:dataset/dataset-exists.rq> a sch:Test;
@@ -52,6 +53,10 @@ _:datasets a sch:TestGroup;
   dc:title "Vocabulary";
   dc:description "Indicate vocabularies to aid querying".
 
+<file:dataset/license.rq> a sch:Test;
+  dc:title "License";
+  dc:description "Datasets should indicate their license".
+
 
 #####################################################################
 # URISETS
@@ -65,6 +70,7 @@ _:urisets a sch:TestGroup;
    <file:uriset/item-type.rq>
    <file:uriset/links-to-uriset.rq>   
    <file:uriset/regex.rq>
+   <file:uriset/unmatched-regex.rq>
   ).
 
 <file:uriset/regex.rq> a sch:Test;
@@ -74,6 +80,11 @@ _:urisets a sch:TestGroup;
 <file:uriset/links-to-uriset.rq> a sch:Test;
   dc:title "URISet Links";
   dc:description "Resources covered by a uri set description should link to their uriset".
+
+<file:uriset/unmatched-regex.rq> a sch:Test;
+  dc:title "Unmatched Regex";
+  dc:description "Resources covered by a uri set description should match the declared regex".
+
 
 #####################################################################
 # MISCELLANEOUS TESTS
