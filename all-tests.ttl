@@ -31,6 +31,7 @@ _:datasets a sch:TestGroup;
     <file:dataset/examples.rq>
 	<file:dataset/vocabulary.rq>    
 	<file:dataset/license.rq>
+	<file:dataset/source.rq>	
   ).
 
 <file:dataset/dataset-exists.rq> a sch:Test;
@@ -56,6 +57,10 @@ _:datasets a sch:TestGroup;
 <file:dataset/license.rq> a sch:Test;
   dc:title "License";
   dc:description "Datasets should indicate their license".
+
+<file:dataset/source.rq> a sch:Test;
+  dc:title "Source";
+  dc:description "Datasets should indicate their source".
 
 
 #####################################################################
