@@ -1,0 +1,17 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX dgu: <http://reference.data.gov.uk/def/reference/>
+PREFIX status: <http://reference.data.gov.uk/def/status/>
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "Resource doesn't conform to declared regex pattern for its uriset";
+    sch:implicated ?x.
+} WHERE {
+  ?x dgu:uriSet ?set.
+  
+  ?set a dgu:URISet;
+    void:uriRegexPattern ?pattern.
+        
+  FILTER ( !regex( str(?x), ?pattern)  )
+}
