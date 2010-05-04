@@ -1,0 +1,19 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "should be a void:Dataset";
+    sch:implicated ?x0.
+    
+} WHERE {
+  ?x0  void:feature  ?x1 .
+  OPTIONAL {
+    ?nafx0  rdf:type  void:Dataset .
+    FILTER (?nafx0 = ?x0) .
+  }
+  FILTER ( !bound(?nafx0) )
+}

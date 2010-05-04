@@ -1,0 +1,19 @@
+PREFIX sch: <http://purl.org/net/schemarama#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+CONSTRUCT {
+  [] a sch:Error;
+    sch:message "should have only one value for void:objectsTarget";
+    sch:implicated ?x0.
+} WHERE {
+  ?x0 void:objectsTarget (?x1 ?x2) .
+
+  OPTIONAL {
+    ?nafx1 owl:sameAs ?x2 .
+    FILTER ( ?nafx1 = ?x1 )
+  }
+  FILTER ( !bound( ?nafx1 ) )
+}
