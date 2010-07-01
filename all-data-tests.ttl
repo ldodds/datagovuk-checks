@@ -83,6 +83,9 @@ _:urisets a sch:TestGroup;
    <uriset/unmatched-regex.rq>
   ).
 
+<uriset/item-type.rq> a sch:Test;
+  dc:title "URISet itemType".
+
 <uriset/regex.rq> a sch:Test;
   dc:title "Regex Patterns";
   dc:description "URI sets should specify structure of the resource identifiers".
@@ -107,5 +110,5 @@ _:misc a sch:TestGroup;
    <misc/notation-datatypes.rq>   
   ).
 
-
-  
+<misc/notation-datatypes.rq> a sch:Test;
+  dc:title "Notation datatypes".
