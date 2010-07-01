@@ -25,45 +25,45 @@ _:datasets a sch:TestGroup;
   dc:title "Dataset Tests";
   dc:description "Check structure and content of datasets";
   sch:tests ( 
-    <file:dataset/dataset-exists.rq>  
-    <file:dataset/label-description.rq> 
-    <file:dataset/status.rq>
-    <file:dataset/examples.rq>
-	<file:dataset/vocabulary.rq>    
-	<file:dataset/license.rq>
-	<file:dataset/source.rq>	
-	<file:dataset/status-warning.rq>	
+    <dataset/dataset-exists.rq>  
+    <dataset/label-description.rq> 
+    <dataset/status.rq>
+    <dataset/examples.rq>
+	<dataset/vocabulary.rq>    
+	<dataset/license.rq>
+	<dataset/source.rq>	
+	<dataset/status-warning.rq>	
   ).
 
-<file:dataset/dataset-exists.rq> a sch:Test;
+<dataset/dataset-exists.rq> a sch:Test;
   dc:title "Dataset";
   dc:description "Check for at least one void:Dataset".
   
-<file:dataset/label-description.rq> a sch:Test;
+<dataset/label-description.rq> a sch:Test;
   dc:title "Labels and Descriptions";
   dc:description "Check for dataset labels and descriptions".
 
-<file:dataset/status.rq> a sch:Test;
+<dataset/status.rq> a sch:Test;
   dc:title "Status";
   dc:description "Datasets should indicate their status".
 
-<file:dataset/examples.rq> a sch:Test;
+<dataset/examples.rq> a sch:Test;
   dc:title "Examples";
   dc:description "Provide example resources to allow navigation".
 
-<file:dataset/vocabulary.rq> a sch:Test;
+<dataset/vocabulary.rq> a sch:Test;
   dc:title "Vocabulary";
   dc:description "Indicate vocabularies to aid querying".
 
-<file:dataset/license.rq> a sch:Test;
+<dataset/license.rq> a sch:Test;
   dc:title "License";
   dc:description "Datasets should indicate their license".
 
-<file:dataset/source.rq> a sch:Test;
+<dataset/source.rq> a sch:Test;
   dc:title "Source";
   dc:description "Datasets should indicate their source".
 
-<file:dataset/status-warning.rq> a sch:Test;
+<dataset/status-warning.rq> a sch:Test;
   dc:title "Status URIs";
   dc:description "Status URIs conform to a limited vocabulary".
 
@@ -77,21 +77,21 @@ _:urisets a sch:TestGroup;
   dc:title "URISet Tests";
   dc:description "Check structure and content of urisets";
   sch:tests (
-   <file:uriset/item-type.rq>
-   <file:uriset/links-to-uriset.rq>   
-   <file:uriset/regex.rq>
-   <file:uriset/unmatched-regex.rq>
+   <uriset/item-type.rq>
+   <uriset/links-to-uriset.rq>   
+   <uriset/regex.rq>
+   <uriset/unmatched-regex.rq>
   ).
 
-<file:uriset/regex.rq> a sch:Test;
+<uriset/regex.rq> a sch:Test;
   dc:title "Regex Patterns";
   dc:description "URI sets should specify structure of the resource identifiers".
     
-<file:uriset/links-to-uriset.rq> a sch:Test;
+<uriset/links-to-uriset.rq> a sch:Test;
   dc:title "URISet Links";
   dc:description "Resources covered by a uri set description should link to their uriset".
 
-<file:uriset/unmatched-regex.rq> a sch:Test;
+<uriset/unmatched-regex.rq> a sch:Test;
   dc:title "Unmatched Regex";
   dc:description "Resources covered by a uri set description should match the declared regex".
 
@@ -104,7 +104,7 @@ _:misc a sch:TestGroup;
   dc:title "Misc Tests";
   dc:description "Checks for various common mistakes or omissions";
   sch:tests (
-   <file:misc/notation-datatypes.rq>   
+   <misc/notation-datatypes.rq>   
   ).
 
 
